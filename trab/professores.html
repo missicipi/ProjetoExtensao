@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="professoresModulo">
+    
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="imagens/favicon.ico">
+
+    <title>Professores</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+       <script src="js/angular.min.js"></script>
+      <script src="controller/professores.js"></script>
+     
+   
+    <link href="css/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body ng-controller="professoresController">
+    <div class="navbar-default">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">IFTM Sistema</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sistema <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="professores.html">Professores</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Alunos</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Turmas</li>
+                    <li><a href="#">Horários</a></li>
+                    <li><a href="#">Conheça a escola</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+      <div class="container">
+      <form class="form-horizontal">
+          <H1 align="center">CADASTRO DE PROFESSORES</H1>
+          
+          
+          <div class="form-group">
+          <label for="codigo" class="col-sm-2 control-label">Código</label>
+            <div  class="col-sm-2">
+   
+            <input type="text" required  ng-model="professor.codigo" class="form-control" id="codigo" placeholder="Código" >
+            </div></div>
+ 
+          <div class="form-group">
+          <label for="nome" required class="col-sm-2 control-label">Nome</label>
+       
+            <div class="col-sm-10">
+    
+        <input type="text" ng-model="professor.nome" class="form-control" id="nome" placeholder="Digite seu Nome">
+              </div></div>
+          <div class="form-group">
+          <label for="email1" class="col-sm-2 control-label">Email</label>
+  <div class="col-sm-10">
+    
+    <input type="email" ng-model="professor.email" class="form-control" id="email"  placeholder="Digite o e-mail">
+   
+  </div></div>
+              <div class="form-group">
+          <label for="Telefone" class="col-sm-2 control-label">Telefone</label>
+  <div class="col-sm-4">
+    
+    <input type="text" ng-model="professor.telefone" class="form-control" id="telefone" placeholder="Digite seu telefone">
+      <br>
+  </div></div>
+          
+          <div align="center" class="col-sm-4">
+         
+              
+          <button type="submit" ng-click="limparCampos()" class="btn btn-primary">Novo</button>
+          <button ng-disabled="!professor.nome" type="submit" ng-click="salvar()" class="btn btn-info">Salvar</button>
+          <button type="submit" ng-click="excluir()" class="btn btn-danger">Excluir</button></div>
+           
+          <div class="col-sm-8">
+              <label for="nome" required class="col-sm-8 control-label">Pesquisa de Professores :</label>
+              <input type="text" ng-model="pesquisaProfessor" id="pesquisar" placeholder="Pequise aqui"></div>
+</form>
+    
+    
+    
+
+          
+        
+         <div class="container" >
+          <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Codigo</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="professoresTabela in professores | filter:pesquisaProfessor" ng-click="selecionaProfessor(professoresTabela)">
+      <th>{{professoresTabela.codigo}}</th>
+      <td>{{professoresTabela.nome}}</td>
+      <td>{{professoresTabela.email}}</td>
+      <td>{{professoresTabela.telefone}}</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+     </div>
+
+     
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+      
+    
+    <script src="js/holder.min.js"></script>
+    
+  </body>
+</html>
