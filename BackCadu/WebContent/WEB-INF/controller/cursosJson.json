@@ -1,0 +1,9 @@
+{"cursos":[
+        {"codigo":"1","nome":"ADS","diashorarios":"Seg a sex 19 hrs","professor":"Ulisses"},
+        {"codigo":"2","nome":"Sistemas para Web","diashorarios":"Seg a sex 13 hrs","professor":"José Carlos"},
+        {"codigo":"3","nome":"Pós IFTM","diashorarios":"Sabado 8 as 12 hrs","professor":"Carlos Eduardo"}
+
+
+
+    ]
+}
